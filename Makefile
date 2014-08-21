@@ -31,12 +31,12 @@
 # ARIETTA=1
 # LPC1768=1 # beta
 # LCTECH_STM32F103RBT6=1 # LC Technology STM32F103RBT6 Ebay boards
-# ARDUINOMEGA2560=1
+ARDUINOMEGA2560=1
 # Or nothing for standard linux compile
 #
 # Also:
 #
-# DEBUG=1                 # add debug symbols (-g)
+DEBUG=1                 # add debug symbols (-g)
 RELEASE=1               # Force release-style compile (no asserts, etc)
 SINGLETHREAD=1          # Compile single-threaded to make compilation errors easier to find
 # BOOTLOADER=1            # make the bootloader (not Espruino)
@@ -853,15 +853,16 @@ CPPSOURCES += targets/mbed/jshardware.cpp
 endif
 
 ifdef ARDUINO_AVR
-MCU = atmega2560
+MCU = atmega256rfr2
 F_CPU = 16000000
 FORMAT = ihex
 
 ARDUINO_LIB=$(ROOT)/targetlibs/arduino_avr/cores/arduino
+PINOCCIO_LIB=$(ROOT)/targetlibs/pinoccio_avr
 ARCHFLAGS += -DF_CPU=$(F_CPU) -mmcu=$(MCU) -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 LDFLAGS += -mrelax
 AVR=1
-INCLUDE+=-I$(ARDUINO_LIB) -I$(ARDUINO_LIB)/../../variants/mega
+INCLUDE+=-I$(ARDUINO_LIB) -I$(PINOCCIO_LIB)/variants/pinoccio
 DEFINES += -DARDUINO_AVR -D$(CHIP) -D$(BOARD)
 SOURCES += \
 $(ARDUINO_LIB)/wiring.c \
