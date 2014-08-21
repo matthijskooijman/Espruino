@@ -36,7 +36,7 @@ ARDUINOMEGA2560=1
 #
 # Also:
 #
-DEBUG=1                 # add debug symbols (-g)
+#DEBUG=1                 # add debug symbols (-g)
 RELEASE=1               # Force release-style compile (no asserts, etc)
 SINGLETHREAD=1          # Compile single-threaded to make compilation errors easier to find
 # BOOTLOADER=1            # make the bootloader (not Espruino)
